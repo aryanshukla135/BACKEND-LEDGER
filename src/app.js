@@ -8,6 +8,11 @@ const app = express();
 app.use(express.json()); // => middleware
 // it is used to parse the incoming request body in JSON format and make it available in req.body. This is particularly useful when working with APIs that send data in JSON format, as it allows you to easily access and manipulate the data sent by the client.
 app.use(cookieParser());
+
+app.get("/",(req,res)=>{
+    res.send("Welcome to the Banking API");
+});
+
 app.use('/api/auth',authRouter);
 app.use("/api/accounts",accountRouter);
 app.use("/api/transactions",transactionRoutes);
